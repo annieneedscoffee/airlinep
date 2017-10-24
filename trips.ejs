@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Trips</title>
+    <link rel="stylesheet" href="/css/master.css">
+  </head>
+  <body>
+    <h1>TRIPS</h1>
+    <h2>Create New Trip</h2>
+    <form action="/trips.html" method="post">
+<select name="flights">
+<option value="AA PHX to CHT">AA PHX to CHT</option>
+</select>
+<input type="submit" value="Create">
+    </form>
+<h2>Upcoming Trips</h2>
+<% for(i=0;i<flights.length;i++){ %>
+<ul>
+  <li>Trip <%= i %>: <%=  %></li>
+</ul>
+<% } %>
+  </body>
+</html>
