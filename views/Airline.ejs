@@ -6,15 +6,16 @@
       <link rel="stylesheet" href="/css/master.css">
   </head>
   <body>
-    <h1>Airline: <%= %></h1>
+    <h1>Airline: <%= airline.name %></h1>
     <h2>Flights</h2>
     <ul>
-    <%= for(i=0;i<;i++){ %>
-      <li><%=  %></li>
-    </ul>
-    <% } %>
+    <% for(i=0;i<flight;i++){ %>
+      <% if(flight[i].airline_id === airline.id){ %>
+      <li>Flight number <%= flight[i].id %>: Departs <%= flight[i].start %> and Arrives <%= flight[i].destination %></li>
+    <% }} %>
+      </ul>
     <h2>Create New Flight</h2>
-    <form action="/airline" method="post">
+    <form action="/airline/:id" method="post">
       <input type="text" name="start" placeholder="start">
       <input type="text" name="destination" placeholder="destination">
       <input type="submit" value="Create">

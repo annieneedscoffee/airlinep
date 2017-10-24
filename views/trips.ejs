@@ -8,11 +8,13 @@
   <body>
     <h1>TRIPS</h1>
     <h2>Create New Trip</h2>
-    <form action="/trips.html" method="post">
-<select name="flights">
-<option value="AA PHX to CHT">AA PHX to CHT</option>
+    <form action="/trips" method="post">
+      <% for(i=0;i<flights.length;i++){ %>
+<select name="flight">
+<option value="flight"><%= flights[i] %></option>
 </select>
 <input type="submit" value="Create">
+<% } %>
     </form>
 <h2>Upcoming Trips</h2>
 <% for(i=0;i<upcomingtrips.length;i++){ %>
