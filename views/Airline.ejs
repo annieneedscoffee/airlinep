@@ -9,7 +9,7 @@
     <h1>Airline: <%= airline.name %></h1>
     <h2>Flights</h2>
     <ul>
-    <% for(i=0;i<flight;i++){ %>
+    <% for(let i=0;i<flight;i++){ %>
       <% if(flight[i].airline_id === airline.id){ %>
       <li>Flight number <%= flight[i].id %>: Departs <%= flight[i].start %> and Arrives <%= flight[i].destination %></li>
     <% }} %>
@@ -20,5 +20,6 @@
       <input type="text" name="destination" placeholder="destination">
       <input type="submit" value="Create">
     </form>
+    <img src="http://www.kenya-advisor.com/images/kenya-airways-airplane-boeing-275x248.jpg" alt="">
   </body>
 </html>

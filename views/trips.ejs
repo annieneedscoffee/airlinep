@@ -9,18 +9,31 @@
     <h1>TRIPS</h1>
     <h2>Create New Trip</h2>
     <form action="/trips" method="post">
-      <% for(i=0;i<flights.length;i++){ %>
+      <% for(let i=0;i<flights.length;i++){ %>
 <select name="flight">
 <option value="flight"><%= flights[i] %></option>
 </select>
 <input type="submit" value="Create">
 <% } %>
     </form>
-<h2>Upcoming Trips</h2>
-<% for(i=0;i<upcomingtrips.length;i++){ %>
-<ul>
-  <li>Trip <%= i %>: <%= upcomingtrips[i] %></li>
-</ul>
-<% } %>
+    <table>
+      <thead>
+        <tr>
+          <td>TITLE</td>
+          <td>DESCRIPTION</td>
+          <td>FLIGHT ID</td>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(let i=0; i<tripsList.length; i++){ %>
+          <tr>
+            <td><%= tripsList[i].title %></td>
+            <td><%= tripsList[i].description %></td>
+            <td><%= tripsList[i].flight_id %></td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Cessna172-CatalinaTakeOff.JPG/300px-Cessna172-CatalinaTakeOff.JPG" alt="">
   </body>
 </html>
