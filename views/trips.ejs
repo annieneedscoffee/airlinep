@@ -5,12 +5,17 @@
   <title>Trips</title>
   <link rel="stylesheet" href="/css/master.css">
   <style>
-    table, tr, td{
-      border: 1px solid #000;
-      border-collapse: collapse;
-      padding: 10px 15px 10px 15px;
-    }
-
+  body{
+    font-family: arial;
+  }
+  table, tr, td{
+    border: 1px solid #000;
+    border-collapse: collapse;
+    padding: 10px 15px 10px 15px;
+  }
+  thead{
+    font-weight: bold;
+  }
   </style>
 </head>
 
@@ -52,12 +57,21 @@
       <tbody>
         <% for(let i=0; i<trips.length; i++){ %>
           <% if(trips[i].user_id === user){ %>
-            <tr>
-              <td><%= trips[i].title %></td>
-              <td><%= trips[i].description %></td>
-              <td><%= trips[i].start %></td>
-              <td><%= trips[i].destination %></td>
-            </tr>
+            <% for(let k=0; k<flight.length; k++){ %>
+              <% if(trips[i].flight_id === flight[k].id){ %>
+                <% for(let m=0; m<airline.length; m++){ %>
+                  <% if(flight[k].airline_id === airline[m].id){ %>
+                    <tr>
+                      <td><%= trips[i].title %></td>
+                      <td><%= trips[i].description %></td>
+                      <td><%= flight[k].start %></td>
+                      <td><%= flight[k].destination %></td>
+                      <td><%= airline[m].name %></td>
+                    </tr>
+                  <% } %>
+                <% } %>
+              <% } %>
+            <% } %>
           <% } %>
         <% } %>
       </tbody>
