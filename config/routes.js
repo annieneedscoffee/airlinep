@@ -1,6 +1,7 @@
 const login = require("../controllers/login.js");
 const trips = require("../controllers/trips.js");
 const airline = require("../controllers/airlineLogin.js");
+const logout = require("../controllers/logout.js")
 
 module.exports = function(app){
 
@@ -9,6 +10,9 @@ module.exports = function(app){
   app.post('/check', login.checkUser);
   app.post('/register', login.register);
   app.get('/airline/login', airline.airlinePage);
+
+  app.get('/userLogout', logout.getOutUser);
+  app.get('/airlineLogout', logout.getOutAirline);
 
   app.post('/aCheck', airline.airlineCheck);
   app.post('/aRegister', airline.register);
