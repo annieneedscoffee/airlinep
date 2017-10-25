@@ -4,6 +4,38 @@
     <meta charset="utf-8">
     <title>Airline</title>
       <link rel="stylesheet" href="/css/master.css">
+      <style media="screen">
+      body{
+        background-image: url('https://images.unsplash.com/photo-1432926783853-156c4e213e85?w=1007&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D');
+        background-size: cover;
+      }
+      h1{
+        text-align: center;
+        color: white;
+      }
+      ul, li{
+        color: white;
+      }
+
+      table, td{border: 1px solid black}
+      h1{text-decoration: underline}
+      table{text-align: center}
+      img{
+        padding: 50px;
+      }
+      h2{
+        padding-left: 50px;
+        color: white;
+      }
+      form{
+        padding-left: 50px
+      }
+      .credit{
+        padding-left: 50px;
+        padding-top: 30%;
+        color: white;
+      }
+      </style>
   </head>
   <body>
     <h1>Airline: <%= airline.name %></h1>
@@ -20,6 +52,6 @@
       <input type="text" name="destination" placeholder="destination">
       <input type="submit" value="Create">
     </form>
-    <img src="http://www.kenya-advisor.com/images/kenya-airways-airplane-boeing-275x248.jpg" alt="">
+    <p class="credit">Photo by Christina Sicoli on Unsplash</p>
   </body>
 </html>
