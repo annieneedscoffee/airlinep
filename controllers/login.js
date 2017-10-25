@@ -3,19 +3,27 @@ const knex = require('../db/knex.js');
 module.exports = {
   loginPage: function(req, res){
     var msg = req.session.successMsg;
-    res.render('index', {msg: msg});
+    var errMsg = req.session.failMsg;
+    var regErrorMsg = req.session.registerErr;
+    res.render('index', {msg: msg, error: errMsg, regMsg: regErrorMsg});
   },
   checkUser: function(req, res){
     knex('user')
       .where('email', req.body.email)
       .then((result)=>{
         let user = result[0];
-        if(user.password ===      req.body.password){
+        if(user.password === req.body.password){
           req.session.user = user.id;
-          res.redirect('/trips')
+          req.session.save(()=>{
+            res.redirect('/trips')
+          })
         }else{
           res.redirect('/')
         }
+      })
+      .catch(()=>{
+        req.session.failMsg = "You have entered wrong email or password. Try again!"
+        res.redirect('/')
       })
   },
   register: function(req, res){
@@ -27,6 +35,10 @@ module.exports = {
     })
     .then(()=>{
       req.session.successMsg = "You have successfully registered. Log in to continue";
+      res.redirect('/')
+    })
+    .catch(()=>{
+      req.session.registerErr = "Email you have used already exist. Try different email!";
       res.redirect('/')
     })
   }

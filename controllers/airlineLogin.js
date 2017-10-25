@@ -2,7 +2,7 @@ const knex = require('../db/knex.js');
 
 module.exports = {
   airlinePage: function(req, res){
-    res.render('alogin', {msg: req.session.aSuccessMsg});
+    res.render('alogin', {msg: req.session.aSuccessMsg, aloginErr: req.session.aloginErr});
   },
   airlineCheck: function(req, res){
     knex('airline')
@@ -11,11 +11,17 @@ module.exports = {
           let airline = result[0];
           if(airline.password === req.body.password){
             req.session.airline = airline.id;
-            res.redirect('/airline');
+            req.session.save(()=>{
+              res.redirect('/airline');
+            })
+
           } else {
             res.redirect('/airline/login');
           }
         })
+      .catch(()=>{
+        req.session.aloginErr = "Wrong email or password. Try again!";
+      })
   },
   register: function(req, res){
     knex('airline')
@@ -29,6 +35,7 @@ module.exports = {
       req.session.aSuccessMsg = "You have successfully registered. Log in to continue.";
       res.redirect('/airline/login');
     })
+    
   },
   airlineList: function(req, res){
     knex('airline')

@@ -1,0 +1,62 @@
+body{
+  font-family: arial;
+  background-image: url('https://images.unsplash.com/photo-1487460344342-931a7b516c60?w=750&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D');
+  background-size: cover;
+  background-repeat: no-repeat;
+  text-align: center;
+}
+h1{
+  text-align: center;
+  color: #000;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+
+}
+h3{
+  color: #154b6b;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+
+
+}
+/* input boxes */
+.ib{
+  border: 1px solid #154b6b;
+  height: 30px;
+  font-size: 22px;
+  border-radius: 2px;
+  margin: 1%;
+}
+.submitBtn{
+  color: #fff;
+  margin: 1%;
+  height: 35px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 18px;
+  border-radius: 2px;
+  background-color: #154b6b;
+  border: 1px solid #043552;
+  text-transform: uppercase;
+}
+
+.submitBtn:hover{
+  color: #afd6ed;
+  border: 1px solid #043552;
+  text-transform: uppercase;
+}
+
+input, button, submit{
+  border:none;
+}
+
+.box{
+  text-align: center;
+  width: 70%;
+  background-color: rgba(255,255,255,0.5);
+  margin-right: 3%;
+  margin-left: 15%;
+  margin-top: 3%;
+  border: 1px solid #f9f9f9;
+  border-radius: 2px;
+}

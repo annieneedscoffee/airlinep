@@ -1,15 +1,14 @@
 body{
-  background-image: url('https://images.unsplash.com/photo-1454388683759-ee76c15fee26?w=1350&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D');
+  background-image: url('https://images.unsplash.com/photo-1432926783853-156c4e213e85?w=1007&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D');
   background-size: cover;
-  font-family: arial;
   background-repeat: no-repeat;
-
+  font-family: arial;
 }
 h1{
   text-align: center;
   color: #000;
   letter-spacing: 4px;
-
+  text-transform: uppercase;
 }
 h3{
   color: #f9856d;
@@ -76,7 +75,7 @@ input, button, submit{
 /* div for table */
 .tb{
   text-align: center;
-  margin-left: 18%;
+  margin-left: 38%;
   margin-bottom: 10%
 }
 .box{
