@@ -8,6 +8,7 @@
       body{
         background-image: url('https://images.unsplash.com/photo-1487460344342-931a7b516c60?w=750&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D');
         background-size: cover;
+        background-repeat: no-repeat;
       }
       h1{
         text-align: center;
@@ -29,17 +30,40 @@
       }
       .credit{
         padding-left: 50px;
-        padding-top: 35%;
+        padding-top: 24%;
 
+      }
+      p{
+        padding-left: 50px;
       }
       </style>
   </head>
   <body>
     <h1>Airline Login</h1>
     <h2>Login</h2>
-<form action="/airline/login" method="post">
-  <input type="text" name="name" placeholder="name" required>
-  <input type="submit" value="submit">
+<form action="/aCheck" method="post">
+<input type="email" name="email" placeholder="Email" required>
+<input type="password" name="password" placeholder="Password" required>
+  <input type="submit" value="Enter">
+</form>
+<h2>Sign Up</h2>
+    <p><%= msg %></p>
+    <form action="/aRegister" method="post">
+  <input type="text" name="name" placeholder="Airline Name" required>
+  <br>
+  <br>
+  <input type="email" name="email" placeholder="Email" required>
+  <br>
+  <br>
+  <input type="password" name="password" placeholder="Password">
+  <br>
+  <br>
+  <input type="text" name="description" placeholder="Description" required>
+  <br>
+  <br>
+  <input type="submit" value="Register">
+
+
 </form>
 <p class="credit">Photo by Brian Gaid on Unsplash</p>
   </body>
