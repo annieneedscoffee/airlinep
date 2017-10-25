@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Trips</title>
+    <link rel="stylesheet" href="/css/master.css">
+    <style>
+    body{
+      background-image: url('https://images.unsplash.com/photo-1454388683759-ee76c15fee26?w=1350&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D');
+      background-size: cover;
+    }
+    h1{
+      text-align: center;
+      color: white;
+    }
+
+    table, td{border: 2px solid black; border-collapse: collapse;
+    padding: 15px;}
+    tr{
+      padding: 15px;
+    }
+    h1{text-decoration: underline}
+    table{text-align: center}
+    img{
+      padding: 50px;
+    }
+    h2{
+      padding-left: 20px;
+      padding-top: 5%;
+      color: black;
+
+    }
+    form{
+      padding-left: 20px;
+      color: black;
+      padding-bottom: 5%;
+      padding-right: 20px;
+    }
+    .credit{
+        padding-left: 50px;
+        color: white;
+        padding-top: 25%;
+    }
+    .box{
+      background-color: white;
+      opacity: .5;
+      margin-right: 3%;
+      margin-left: 3%;
+      margin-top: 3%;
+    }
+    </style>
+  </head>
+  <body>
+    <h1>TRIPS</h1>
+    <div class="box">
+    <h2>Create New Trip</h2>
+    <form action="/createTrip" method="post">
+       <input type="text" name="title" placeholder="Title" required>
+            <input type="text" name="description" placeholder="Description" required>
+      <% for(let i=0;i<flights.length;i++){ %>
+        <select name="flight">
+           <% for(let j=0; j<flight.length; j++){ %>
+           <option value="<%= flight[j].airline_id %>">
+             <%= flight[j].start %> -->
+             <%= flight[j].destination %>
+             </option>
+           <% } %>
+         </select>
+<input type="submit" value="Create">
+<% } %>
+    </form>
+    <h2>Trips</h2>
+    <table>
+          <thead>
+            <tr>
+              <td>TITLE</td>
+              <td>DESCRIPTION</td>
+              <td>FROM</td>
+              <td>TO</td>
+              <td>Airline</td>
+            </tr>
+          </thead>
+          <tbody>
+            <% for(let i=0; i<trips.length; i++){ %>
+              <% if(trips[i].user_id === user){ %>
+                <% for(let k=0; k<flight.length; k++){ %>
+                  <% if(trips[i].flight_id === flight[k].id){ %>
+                    <% for(let m=0; m<airline.length; m++){ %>
+                      <% if(flight[k].airline_id === airline[m].id){ %>
+                        <tr>
+                          <td><%= trips[i].title %></td>
+                          <td><%= trips[i].description %></td>
+                          <td><%= flight[k].start %></td>
+                          <td><%= flight[k].destination %></td>
+                          <td><%= airline[m].name %></td>
+                        </tr>
+                      <% } %>
+                    <% } %>
+                  <% } %>
+                <% } %>
+              <% } %>
+            <% } %>
+          </tbody>
+        </table>
+    </div>
+<p class="credit">Photo by Brett Campbell on Unsplash</p>
+  </body>
+</html>
