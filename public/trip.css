@@ -1,0 +1,89 @@
+body{
+  background-image: url('https://images.unsplash.com/photo-1454388683759-ee76c15fee26?w=1350&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D');
+  background-size: cover;
+  font-family: arial;
+  background-repeat: no-repeat;
+
+}
+h1{
+  text-align: center;
+  color: #000;
+  letter-spacing: 4px;
+
+}
+h3{
+  color: #f9856d;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+table, td, tr{
+  border: 2px solid #464646;
+  border-collapse: collapse;
+  padding: 15px;
+  text-align: center
+}
+thead{
+  font-weight: bold;
+  color: #f9856d;
+}
+
+/* input boxes */
+.ib{
+  border: 1px solid #f9856d;
+  height: 30px;
+  font-size: 22px;
+  border-radius: 2px;
+  margin: 1%;
+}
+/* drop down boxes */
+.dd{
+  border: 1px solid #f9856d;
+  height: 35px;
+  font-size: 22px;
+  border-radius: 2px;
+  margin: 1%;
+}
+
+.submitBtn{
+  color: #fff;
+  margin: 1%;
+  height: 35px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 18px;
+  border-radius: 2px;
+  background-color: #f9856d;
+  border: 1px solid #fb694b;
+}
+
+.submitBtn:hover{
+  color: #000;
+  border: 1px solid #fb694b;
+}
+
+input, button, submit{
+  border:none;
+}
+.credit{
+  padding-left: 50px;
+  color: white;
+  padding-top: 25%;
+}
+
+/* div for table */
+.tb{
+  text-align: center;
+  margin-left: 18%;
+  margin-bottom: 10%
+}
+.box{
+  text-align: center;
+  width: 70%;
+  background-color: rgba(255,255,255,0.8);
+  margin-right: 3%;
+  margin-left: 3%;
+  margin-top: 3%;
+  border: 1px solid #f9f9f9;
+  border-radius: 2px;
+}

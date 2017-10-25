@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
@@ -32,7 +32,7 @@
       <select name="flight">
         <% for(let j=0; j<flight.length; j++){ %>
         <option value="<%= flight[j].airline_id %>">
-          <%= flight[j].start %> -->
+          <%= flight[j].start %>
           <%= flight[j].destination %>
           </option>
         <% } %>
@@ -78,4 +78,93 @@
     </table>
 
 </body>
+</html> -->
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Trips</title>
+  <link rel="stylesheet" href="/trip.css">
+</head>
+
+<body>
+  <div class="box">
+    <h1>TRIPS</h1>
+    <br>
+    <h3>Create New Trip</h3>
+    <form action="/createTrip" method="post">
+      <input class="ib" type="text" name="title" placeholder="Title" required>
+      <input class="ib" type="text" name="description" placeholder="Description" required>
+      <select class="dd" name="flight">
+          <% for(let j=0; j<flight.length; j++){ %>
+          <option value="<%= flight[j].airline_id %>">
+          <%= flight[j].start %>
+          <%= flight[j].destination %>
+          </option>
+          <% } %>
+        </select>
+      <input class="submitBtn" type="submit" value="Create">
+
+    </form>
+    <br>
+    <br>
+    <h3>Upcoming Trips</h3>
+    <div class="tb">
+      <table>
+        <thead>
+          <tr>
+            <td>TITLE</td>
+            <td>DESCRIPTION</td>
+            <td>FROM</td>
+            <td>TO</td>
+            <td>Airline</td>
+          </tr>
+        </thead>
+        <tbody>
+          <% for(let i=0; i<trips.length; i++){ %>
+            <% if(trips[i].user_id === user){ %>
+              <% for(let k=0; k<flight.length; k++){ %>
+                <% if(trips[i].flight_id === flight[k].id){ %>
+                  <% for(let m=0; m<airline.length; m++){ %>
+                    <% if(flight[k].airline_id === airline[m].id){ %>
+                      <tr>
+                        <td>
+                          <%= trips[i].title %>
+                        </td>
+                        <td>
+                          <%= trips[i].description %>
+                        </td>
+                        <td>
+                          <%= flight[k].start %>
+                        </td>
+                        <td>
+                          <%= flight[k].destination %>
+                        </td>
+                        <td>
+                          <%= airline[m].name %>
+                        </td>
+                      </tr>
+                      <% } %>
+                        <% } %>
+                          <% } %>
+                            <% } %>
+                              <% } %>
+                                <% } %>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+  <p class="credit">Photo by Brett Campbell on Unsplash</p>
+</body>
+
 </html>
