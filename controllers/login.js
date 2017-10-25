@@ -8,6 +8,7 @@ module.exports = {
 
   register: function(req, res){
     encryption.hash(req.body).then((encryptedUser)=>{
+      console.log(encryptedUser)
     knex('user')
     .insert(encryptedUser)
     .then(()=>{
