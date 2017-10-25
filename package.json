@@ -1,13 +1,12 @@
 {
   "name": "airlinep",
   "version": "1.0.0",
-  "description": "",
   "main": "knexfile.js",
   "dependencies": {
     "bcrypt": "^1.0.3",
     "connect-session-knex": "^1.4.0",
-    "express-session": "^1.15.6",
     "express": "^4.16.2",
+    "express-session": "^1.15.6",
     "knex": "^0.13.0",
     "pg": "^7.3.0"
   },
@@ -25,5 +24,6 @@
   "bugs": {
     "url": "https://github.com/rahul4times/airlinep/issues"
   },
-  "homepage": "https://github.com/rahul4times/airlinep#readme"
+  "homepage": "https://github.com/rahul4times/airlinep#readme",
+  "description": ""
 }
