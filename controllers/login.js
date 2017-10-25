@@ -5,6 +5,21 @@ module.exports = {
     var msg = req.session.successMsg;
     res.render('index', {msg: msg});
   },
+
+  register: function(req, res){
+    encryption.hash(req.body).then((encryptedUser)=>{
+    knex('user')
+    .insert(encryptedUser)
+    .then(()=>{
+      req.session.successMsg = "You have successfully registered. Log in to continue";
+      res.redirect('/');
+    })
+    .catch(()=>{
+      res.redirect('/');
+    })
+  })
+},
+
   checkUser: function(req, res){
     knex('user')
       .where('email', req.body.email)
@@ -14,19 +29,14 @@ module.exports = {
         encryption.check(user, req.body).then((isValid)=>{
         if(isValid){
           req.session.user = user.id;
-          res.redirect('/trips')
+          res.redirect('/trips');
         }else{
-          res.redirect('/')
+          res.redirect('/');
         }
-      })})
-  },
-  register: function(req, res){
-    encryption.hash(req.body).then((encryptedUser)=>{
-    knex('user')
-    .insert(encryptedUser)
-    .then(()=>{
-      req.session.successMsg = "You have successfully registered. Log in to continue";
+      })
+    })
+    .catch((err)=>{
       res.redirect('/')
     })
-  })
+  }
 }
