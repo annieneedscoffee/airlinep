@@ -9,7 +9,10 @@ module.exports = function(app){
   app.post('/register', login.register);
 
   app.use(userAuth);
-  app.get('/trips', trips.tripList);
+  
+  app.get('/trips', trips.flightList);
+
+
   app.post('/createTrip', trips.newTrip);
 
 }

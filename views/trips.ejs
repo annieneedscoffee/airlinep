@@ -4,21 +4,31 @@
   <meta charset="utf-8">
   <title>Trips</title>
   <link rel="stylesheet" href="/css/master.css">
+  <style>
+    table, tr, td{
+      border: 1px solid #000;
+      border-collapse: collapse;
+      padding: 10px 15px 10px 15px;
+    }
+
+  </style>
 </head>
 
 <body>
   <h1>TRIPS</h1>
   <h2>Create New Trip</h2>
     <form action="/createTrip" method="post">
-      <input type="text" name="title" placeholder="Title">
+      <input type="text" name="title" placeholder="Title" required>
       <br>
       <br>
-      <input type="text" name="description" placeholder="Description">
+      <input type="text" name="description" placeholder="Description" required>
       <br>
       <br>
       <select name="flight">
-        <% for(let j=0; j<flightList.length; j++){ %>
-        <option value="<%= flightList[j].airline_id %>">Start: <%= flightList[j].start %>,  Destination: <%= flightList[j].destination %>
+        <% for(let j=0; j<flight.length; j++){ %>
+        <option value="<%= flight[j].airline_id %>">
+          <%= flight[j].start %> -->
+          <%= flight[j].destination %>
           </option>
         <% } %>
       </select>
@@ -34,16 +44,21 @@
         <tr>
           <td>TITLE</td>
           <td>DESCRIPTION</td>
-          <td>FLIGHT ID</td>
+          <td>FROM</td>
+          <td>TO</td>
+          <td>Airline</td>
         </tr>
       </thead>
       <tbody>
-        <% for(let i=0; i<tripsList.length; i++){ %>
-          <tr>
-            <td><%= tripsList[i].title %></td>
-            <td><%= tripsList[i].description %></td>
-            <td><%= tripsList[i].flight_id %></td>
-          </tr>
+        <% for(let i=0; i<trips.length; i++){ %>
+          <% if(trips[i].user_id === user){ %>
+            <tr>
+              <td><%= trips[i].title %></td>
+              <td><%= trips[i].description %></td>
+              <td><%= trips[i].start %></td>
+              <td><%= trips[i].destination %></td>
+            </tr>
+          <% } %>
         <% } %>
       </tbody>
     </table>
