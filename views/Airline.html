@@ -13,11 +13,12 @@
         text-align: center;
         color: white;
       }
-      ul, li{
-        color: white;
+      table, td{border: 2px solid black; border-collapse: collapse;
+      padding: 15px;}
+      tr{
+        padding: 15px;
       }
-
-      table, td{border: 1px solid black}
+      table{text-align: center}
       h1{text-decoration: underline}
       table{text-align: center}
       img{
@@ -25,33 +26,63 @@
       }
       h2{
         padding-left: 50px;
-        color: white;
+        color: black;
       }
       form{
-        padding-left: 50px
+        padding-left: 20px;
+        color: black;
+        padding-bottom: 5%;
+        padding-right: 20px;
       }
       .credit{
         padding-left: 50px;
-        padding-top: 30%;
+        padding-top: 25%;
         color: white;
+      }
+      .box{
+        background-color: white;
+        opacity: .5;
+        margin-right: 35%;
+        margin-left: 3%;
+        margin-top: 3%;
       }
       </style>
   </head>
   <body>
-    <h1>Airline: <%= airline.name %></h1>
+    <% for(let i=0; i<airline.length; i++){ %>
+  <% if(airline[i].id === airlineId){ %>
+    <h1>Welcome <%= airline[i].name %></h1>
+  <% } %>
+<% } %>
+    <div class="box">
     <h2>Flights</h2>
-    <ul>
-    <% for(let i=0;i<flight;i++){ %>
-      <% if(flight[i].airline_id === airline.id){ %>
-      <li>Flight number <%= flight[i].id %>: Departs <%= flight[i].start %> and Arrives <%= flight[i].destination %></li>
-    <% }} %>
-      </ul>
+    <table>
+      <thead>
+        <tr>
+          <td>START</td>
+          <td>DESTINATION</td>
+        </tr>
+      </thead>
+      <tbody>
+
+        <% for(let j=0; j<flight.length; j++){ %>
+          <% if(flight[j].airline_id === airlineId){ %>
+            <tr>
+              <td><%= flight[j].start %></td>
+              <td><%= flight[j].destination %></td>
+            </tr>
+          <% } %>
+        <% } %>
+
+      </tbody>
+    </table>
     <h2>Create New Flight</h2>
     <form action="/airline/:id" method="post">
       <input type="text" name="start" placeholder="start">
       <input type="text" name="destination" placeholder="destination">
       <input type="submit" value="Create">
     </form>
+      </div>
     <p class="credit">Photo by Christina Sicoli on Unsplash</p>
   </body>
 </html>
