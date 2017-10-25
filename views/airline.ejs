@@ -3,8 +3,60 @@
   <head>
     <meta charset="utf-8">
     <title>Airline</title>
+    <style>
+    body{
+      font-family: arial;
+    }
+      table, tr, td{
+        border: 1px solid #000;
+        border-collapse: collapse;
+        padding: 15px;
+      }
+    </style>
   </head>
   <body>
-    <h1>Airline Page</h1>
+
+    <% for(let i=0; i<airline.length; i++){ %>
+      <% if(airline[i].id === airlineId){ %>
+        <h1>Welcome <%= airline[i].name %></h1>
+      <% } %>
+    <% } %>
+
+    <h3>Upcoming Flights</h3>
+    <br>
+    <table>
+      <thead>
+        <tr>
+          <td>START</td>
+          <td>DESTINATION</td>
+        </tr>
+      </thead>
+      <tbody>
+
+        <% for(let j=0; j<flight.length; j++){ %>
+          <% if(flight[j].airline_id === airlineId){ %>
+            <tr>
+              <td><%= flight[j].start %></td>
+              <td><%= flight[j].destination %></td>
+            </tr>
+          <% } %>
+        <% } %>
+
+      </tbody>
+    </table>
+    <br>
+    <br>
+    <h3>Create New Flight</h3>
+    <br>
+    <form action="/createFlight" method="post">
+      <input type="text" name="start" placeholder="Starts" required>
+      <br>
+      <br>
+      <input type="text" name="destination" placeholder="Destination" required>
+      <br>
+      <br>
+      <input type="submit" value="Create">
+    </form>
+
   </body>
 </html>

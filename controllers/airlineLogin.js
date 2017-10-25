@@ -31,10 +31,24 @@ module.exports = {
     })
   },
   airlineList: function(req, res){
-    res.render('airline');
+    knex('airline')
+      .then((airline)=>{
+        knex('flight')
+          .then((flight)=>{
+            res.render('airline', {airline: airline, flight: flight, airlineId: req.session.airline});
+          })
+      })
+  },
+  new: function(req, res){
+    knex('flight')
+      .insert({
+        start: req.body.start,
+        destination: req.body.destination,
+        airline_id: req.session.airline
+      })
+      .then(()=>{
+        res.redirect('/airline');
+      })
   }
-
-
-
 
 }

@@ -18,11 +18,13 @@ module.exports = function(app){
   app.get('/trips', trips.flightList);
   app.post('/createTrip', trips.newTrip);
 
+
   app.get('/airline', airline.airlineList);
+  app.post('/createFlight', airline.new);
 
 }
 function userAuth(req,res,next){
-  if(req.session.user){
+  if(req.session.user || req.session.airline){
     next();
   }else{
     res.redirect('/');
